@@ -90,7 +90,7 @@
 // console.log(border); // black
 // console.log(bg); // red
 
-// massive
+// array
 
 // const arr = [5, 2, 3, 6, 8];
 
@@ -451,7 +451,7 @@ availableCurr([...baseCurrencies, ...additionalCurrencies], 'CNY');
 // function availableCurr(arr, missingCurr) {
 //     let str = '';
 //     arr.length === 0
-//         ? (str = 'Нет доступных валют')
+//         '?' (str = 'Нет доступных валют')
 //         : (str = 'Доступные валюты:\n');
 
 //     arr.forEach(function (curr, i) {
@@ -460,13 +460,13 @@ availableCurr([...baseCurrencies, ...additionalCurrencies], 'CNY');
 //         }
 //     });
 
-//     // Или
-//     // for (let i = 0; i < arr.length; i++) {
-//     //     if (arr[i] === missingCurr) {
-//     //         continue;
-//     //     }
-//     //     str += `${arr[i]}\n`;
-//     // }
+// Или
+// for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] === missingCurr) {
+//         continue;
+//     }
+//     str += `${arr[i]}\n`;
+// }
 
 //     return str;
 // }
