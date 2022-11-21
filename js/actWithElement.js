@@ -52,7 +52,7 @@ wrapper.append(div); // if you change the code it calls refactoring
 // wrapper.replaceChild(circles[0], hearts[0]); // получить родителя, первый какой будет вставляться вместо другого old one
 
 // div.innerHTML = 'Hello World'; // чтобы написать что-то внутри созданного элемента
-div.innerHTML = '<h1>Hello World</h1>'; // моэем написать как html
+div.innerHTML = '<h1>Hello World</h1>'; // можем написать как html
 
 // div.textContent = 'Hello world'; // it works only with text
 
