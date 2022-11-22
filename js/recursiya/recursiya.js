@@ -93,6 +93,15 @@ let students = {
                 progress: 10,
             },
         ],
+        // here the object will be added after and when it happens we should harder our function and therefore that we not be in need to harder our function the best way do with recursion, when use recursion this method will work
+        some: {
+            students: [
+                {
+                    name: 'Test',
+                    progress: 100,
+                },
+            ],
+        },
     },
 };
 // we should count the numbers from progress
@@ -115,6 +124,7 @@ function getTotalProgressByIteration(data) {
         } else {
             // when we don't encounter the array but encounter the object
             for (let subCourse of Object.values(course)) {
+                // course here like object students but here the html and we get the value basic and pro
                 // console.log(subCourse);
                 //[ { name: 'Peter', progress: 20 }, { name: 'Ann', progress: 18 } ]
                 // [ { name: 'Sam', progress: 10 } ]
@@ -130,7 +140,7 @@ function getTotalProgressByIteration(data) {
     return total / students;
 }
 
-console.log(getTotalProgressByIteration(students));
+// console.log(getTotalProgressByIteration(students));
 
 //object.values() if put the object as arguments then we will get all values as array
 
@@ -150,3 +160,36 @@ console.log(getTotalProgressByIteration(students));
 //     basic: [ { name: 'Peter', progress: 20 }, { name: 'Ann', progress: 18 } ],
 //     pro: [ { name: 'Sam', progress: 10 } ]
 //   }
+
+// recursion version of doing this task
+function getTotalProgressByRecursion(data) {
+    // first we should write the base where our recursion should finish and base in that case will be if it's array
+    if (Array.isArray(data)) {
+        // we should firstly to check may be our overall data is array
+        // the second thing that in recursion there is not any interim variable like let students = 0;
+
+        let total = 0; // but overal number of students we can get like data.length
+
+        for (let i = 0; i < data.length; i++) {
+            total += data[i].progress;
+        }
+
+        // in recursion exactly  in base we should return something
+        return [total, data.length]; // здесь возвращаем процент и число студентов как в итерации // это как бы база что в конце будет вернуться
+    } else {
+        // здесь получим объект
+        // здесь объявляем промежуточные результаты
+        let total = [0, 0];
+
+        for (let subData of Object.values(data)) {
+            const subDataArr = getTotalProgressByRecursion(subData); // это работает так что если мы еще раз во втором натыкаемся на массив то функция заново пустится и работает верхняя часть программы
+            total[0] += subDataArr[0]; // общее значение всего массива
+            total[1] += subDataArr[1]; // 1 элемент в первый а второй в первый
+        }
+        return total;
+    }
+}
+
+const result = getTotalProgressByRecursion(students);
+
+console.log(result[0] / result[1]); // то есть общий прогресс делим на общее число студентов
